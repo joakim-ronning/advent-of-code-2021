@@ -5,15 +5,14 @@ const getResult = (data, match, stepCalculator) => data.map(n => Math.abs(n-matc
 const getResults = (data, stepCalculator) => {
     const checkedNumbers = [];
     const results = [];
-    for(let i=0; i<data.length; i++) {
-        const match = data[i];
+    data.forEach(match => {
         if(checkedNumbers.includes(match)){
-            continue;
+            return;
         }
         results.push(getResult(data, match, stepCalculator));
-    
         checkedNumbers.push(match);
-    }
+    })
+
     return results;
 }
 
